@@ -13,5 +13,8 @@ router.get('/', async (req, res, next) => {
     next(error);
   }
 });
+const userController = require('../controllers/userController');
 
+// 确保POST路由正确定义
+router.post('/', userController.createUser);
 module.exports = router;
