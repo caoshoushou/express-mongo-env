@@ -1,14 +1,22 @@
+// src/routes/users.js
 const express = require('express');
 const router = express.Router();
-// 导入控制器（确保路径正确，变量名一致）
+
+router.get('/', async (req, res, next) => {
+  try {
+    const allUsers = await users.find({});
+    res.json(allUsers);
+  } catch (error) {
+    next(error);
+  }
+});
 const userController = require('../controllers/userController');
 
-// 路由映射：全部调用userController的方法，无未定义的users变量
+// 路由映射
 router.get('/', userController.getAllUsers);
 router.get('/username/:username', userController.getUserByUsername);
 router.get('/id/:id', userController.getUserById);
 router.get('/jobs', userController.getAllJobs);
 router.get('/range', userController.getUsersByIdRange);
 
-// 导出router（必须有，否则路由挂载失败）
 module.exports = router;

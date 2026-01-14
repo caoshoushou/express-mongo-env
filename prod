@@ -1,1 +1,3 @@
-DB_URL = mongodb://dbadmin:MongoDB03@isit.my.to:27017/my-employees?authSource=admin&readPreference=primary&ssl=false&directConnection=true
+DB_URL=mongodb://localhost:27017/my-employees
+JWT_SECRET=secret@prod
+PORT=3065
